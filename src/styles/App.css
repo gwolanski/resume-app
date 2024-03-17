@@ -1,0 +1,58 @@
+#root {
+  max-width: 1280px;
+  /* margin: 0 auto; */
+  padding: 1rem;
+  text-align: center;
+}
+
+.pageLayout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+.inputLabel {
+  color: blue;
+}
+
+.inputBox {}
+
+.inputSection {
+  border: 1px solid black;
+  border-radius: 10%;
+  text-align: left;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 7px 7px 10px lightblue;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  width: 750px;
+  border: 1px solid black;
+  padding: 96px;
+}
+
+.resumeName {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.resumeLocation {
+  color: rgb(87, 87, 87);
+}
+
+.resumeContactInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  text-align: start;
+}
+
+.contactInfo {
+  text-align: end;
+}
