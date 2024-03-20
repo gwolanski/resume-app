@@ -59,6 +59,18 @@ function App() {
     }])
   }
 
+  const handleRemoveEducation = id => {
+    const values = [...educationInputValues];
+    values.splice(values.findIndex(value => value.id === id), 1);
+    setEducationInputValues(values);
+  }
+
+  const handleRemoveWork = id => {
+    const values = [...workInputValues];
+    values.splice(values.findIndex(value => value.id === id), 1);
+    setWorkInputValues(values);
+  }
+
   const handleGeneralInputChange = (e) => {
     setInputValues({
       ...inputValues,
@@ -78,7 +90,7 @@ function App() {
   }
 
   const handleWorkInputChange = (id, event) => {
-    const newWorkInputValues = educationInputValues.map(item => {
+    const newWorkInputValues = workInputValues.map(item => {
       if (id === item.id) {
         item[event.target.name] = event.target.value
       }
@@ -89,7 +101,7 @@ function App() {
 
   const listEducationInputs = educationInputValues.map(item =>
     <div className="container workEducationContainer" key={item.id}>
-      <button className="deleteBtn">X</button>
+      <button className="deleteBtn" onClick={() => handleRemoveEducation(item.id)}>X</button>
       <EducationWorkInfoInput
         inputLabel="School/University: "
         id={item.id}
@@ -116,7 +128,7 @@ function App() {
 
   const listWorkInputs = workInputValues.map(item =>
     <div className="container workEducationContainer" key={item.id}>
-      <button className="deleteBtn">X</button>
+      <button className="deleteBtn" onClick={() => handleRemoveWork(item.id)}>X</button>
       <EducationWorkInfoInput
         inputLabel="Company: "
         id={item.id}
