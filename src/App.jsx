@@ -55,7 +55,8 @@ function App() {
       company: '',
       position: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
+      responsibilities: ''
     }])
   }
 
@@ -155,6 +156,13 @@ function App() {
         id={item.id}
         name="endDate"
         value={item.endDate}
+        onChange={event => handleWorkInputChange(item.id, event)}
+      />
+      <EducationWorkInfoInput
+        inputLabel="Responsibilities: "
+        id={item.id}
+        name="responsibilities"
+        value={item.responsibilities}
         onChange={event => handleWorkInputChange(item.id, event)}
       />
     </div>
@@ -258,13 +266,39 @@ function App() {
           </div>
           <div className="resumeWork">
             <h2 className="sectionHeading">Work Experience</h2>
+            {workInputValues.map(item => (
+              <div className="workExperienceContainer">
+                <div className="workExperienceHeading">
+                  <div className="workLeft">
+                    <div key={item.id} className="position"> {item.position}</div>
+                    <div className="symbol">|</div>
+                    <div key={item.id} className="company"> {item.company}</div>
+                  </div>
+                  <div className="workRight">
+                    <div key={item.id} > {item.startDate}</div>
+                    <div className="symbol">-</div>
+                    <div key={item.id} > {item.endDate}</div>
+                  </div>
+                </div>
+                <div key={item.id} > {item.responsibilities}</div>
+              </div>
+            ))}
           </div>
           <div className="resumeEducation">
             <h2 className="sectionHeading">Education</h2>
+            {educationInputValues.map(item => (
+              <div className="educationContainer">
+                <div key={item.id} className="major">{item.major}</div>
+                <div className="symbol">|</div>
+                <div key={item.id} className="school">{item.school}</div>
+                <div key={item.id}>{item.graduationYear}</div>
+              </div>
+
+            ))}
           </div>
 
         </div>
-      </div>
+      </div >
 
     </>
   )

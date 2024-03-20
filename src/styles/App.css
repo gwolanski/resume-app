@@ -124,3 +124,48 @@ h2 {
   line-height: 3px;
   margin-bottom: 7px;
 }
+
+.resumeWork,
+.resumeEducation {
+  margin-top: 1rem;
+}
+
+.workExperienceContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.workExperienceHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.workLeft,
+.workRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.symbol {
+  margin: 0 5px;
+}
+
+.position,
+.company,
+.major,
+.school {
+  font-weight: bold;
+}
+
+.company,
+.school {
+  color: rgb(98, 98, 98);
+}
+
+.educationContainer {
+  display: flex;
+  flex-direction: row;
+}
