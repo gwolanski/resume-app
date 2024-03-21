@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InfoInput from './components/Info'
 import EducationWorkInfoInput from './components/EducationWorkInfo';
 import AddButton from './components/AddButton'
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 import './styles/App.css'
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   });
 
   const [educationInputValues, setEducationInputValues] = useState([{
-    id: uuidv4(),
+    identifier: uuidv4(),
     school: '',
     major: '',
     graduationYear: ''
@@ -33,7 +34,7 @@ function App() {
   ]);
 
   const [workInputValues, setWorkInputValues] = useState([{
-    id: uuidv4(),
+    identifier: uuidv4(),
     company: '',
     position: '',
     startDate: '',
@@ -42,7 +43,7 @@ function App() {
 
   const handleAddEducation = () => {
     setEducationInputValues([...educationInputValues, {
-      id: uuidv4(),
+      identifier: uuidv4(),
       school: '',
       major: '',
       graduationYear: ''
@@ -51,7 +52,7 @@ function App() {
 
   const handleAddWork = () => {
     setWorkInputValues([...workInputValues, {
-      id: uuidv4(),
+      identifier: uuidv4(),
       company: '',
       position: '',
       startDate: '',
@@ -62,13 +63,13 @@ function App() {
 
   const handleRemoveEducation = id => {
     const values = [...educationInputValues];
-    values.splice(values.findIndex(value => value.id === id), 1);
+    values.splice(values.findIndex(value => value.identifier === id), 1);
     setEducationInputValues(values);
   }
 
   const handleRemoveWork = id => {
     const values = [...workInputValues];
-    values.splice(values.findIndex(value => value.id === id), 1);
+    values.splice(values.findIndex(value => value.identifier === id), 1);
     setWorkInputValues(values);
   }
 
@@ -82,7 +83,7 @@ function App() {
 
   const handleEducationInputChange = (id, event) => {
     const newEducationInputValues = educationInputValues.map(item => {
-      if (id === item.id) {
+      if (id === item.identifier) {
         item[event.target.name] = event.target.value
       }
       return item;
@@ -92,7 +93,7 @@ function App() {
 
   const handleWorkInputChange = (id, event) => {
     const newWorkInputValues = workInputValues.map(item => {
-      if (id === item.id) {
+      if (id === item.identifier) {
         item[event.target.name] = event.target.value
       }
       return item;
@@ -101,70 +102,80 @@ function App() {
   }
 
   const listEducationInputs = educationInputValues.map(item =>
-    <div className="container workEducationContainer" key={item.id}>
-      <button className="deleteBtn" onClick={() => handleRemoveEducation(item.id)}>X</button>
+    <div className="container workEducationContainer" key={item.identifier}>
       <EducationWorkInfoInput
-        inputLabel="School/University: "
         id={item.id}
+        inputLabel="School/University"
+        identifier={item.identifier}
         name="school"
         value={item.school}
-        onChange={event => handleEducationInputChange(item.id, event)}
+        onChange={event => handleEducationInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="Major: "
         id={item.id}
+        inputLabel="Major"
+        identifier={item.identifier}
         name="major"
         value={item.major}
-        onChange={event => handleEducationInputChange(item.id, event)}
+        onChange={event => handleEducationInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="Graduation Year: "
         id={item.id}
+        inputLabel="Graduation Year"
+        identifier={item.identifier}
         name="graduationYear"
         value={item.graduationYear}
-        onChange={event => handleEducationInputChange(item.id, event)}
+        onChange={event => handleEducationInputChange(item.identifier, event)}
       />
+      <DeleteForeverTwoToneIcon sx={{ fontSize: 27 }} className="deleteButton" onClick={() =>
+        handleRemoveEducation(item.identifier)} />
     </div>
   );
 
   const listWorkInputs = workInputValues.map(item =>
-    <div className="container workEducationContainer" key={item.id}>
-      <button className="deleteBtn" onClick={() => handleRemoveWork(item.id)}>X</button>
+    <div className="container workEducationContainer" key={item.identifier}>
       <EducationWorkInfoInput
-        inputLabel="Company: "
         id={item.id}
+        inputLabel="Company"
+        identifier={item.identifier}
         name="company"
         value={item.company}
-        onChange={event => handleWorkInputChange(item.id, event)}
+        onChange={event => handleWorkInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="Position: "
         id={item.id}
+        inputLabel="Position"
+        identifier={item.identifier}
         name="position"
         value={item.position}
-        onChange={event => handleWorkInputChange(item.id, event)}
+        onChange={event => handleWorkInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="Start Date: "
         id={item.id}
+        inputLabel="Start Date"
+        identifier={item.identifier}
         name="startDate"
         value={item.startDate}
-        onChange={event => handleWorkInputChange(item.id, event)}
+        onChange={event => handleWorkInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="End Date: "
         id={item.id}
+        inputLabel="End Date"
+        identifier={item.identifier}
         name="endDate"
         value={item.endDate}
-        onChange={event => handleWorkInputChange(item.id, event)}
+        onChange={event => handleWorkInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
-        inputLabel="Responsibilities: "
         id={item.id}
+        inputLabel="Responsibilities"
+        identifier={item.identifier}
         name="responsibilities"
         value={item.responsibilities}
-        onChange={event => handleWorkInputChange(item.id, event)}
+        onChange={event => handleWorkInputChange(item.identifier, event)}
       />
+      <DeleteForeverTwoToneIcon sx={{ fontSize: 27 }} className="deleteButton" onClick={() =>
+        handleRemoveWork(item.identifier)} />
     </div>
   )
 
@@ -176,43 +187,43 @@ function App() {
             <h2 className="sectionHeading">General Info</h2>
             <div className="container">
               <InfoInput
-                inputLabel="Full Name: "
+                inputLabel="Full Name "
                 name="fullName"
                 value={inputValues.fullName}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="Email: "
+                inputLabel="Email "
                 name="email"
                 value={inputValues.email}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="Phone Number: "
+                inputLabel="Phone Number "
                 name="phoneNumber"
                 value={inputValues.phoneNumber}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="City: "
+                inputLabel="City "
                 name="city"
                 value={inputValues.city}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="State: "
+                inputLabel="State "
                 name="state"
                 value={inputValues.state}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="LinkedIn URL: "
+                inputLabel="LinkedIn URL "
                 name="linkedInURL"
                 value={inputValues.linkedInURL}
                 onChange={handleGeneralInputChange}
               />
               <InfoInput
-                inputLabel="GitHub URL: "
+                inputLabel="GitHub URL "
                 name="gitHubURL"
                 value={inputValues.gitHubURL}
                 onChange={handleGeneralInputChange}
@@ -232,19 +243,19 @@ function App() {
           <div className="inputSection">
             <h2>Projects</h2>
             <InfoInput
-              inputLabel="Project Name: "
+              inputLabel="Project Name"
               name="projectName"
               value={inputValues.projectName}
               onChange={handleGeneralInputChange}
             />
             <InfoInput
-              inputLabel="Project URL: "
+              inputLabel="Project URL"
               name="projectURL"
               value={inputValues.projectURL}
               onChange={handleGeneralInputChange}
             />
             <InfoInput
-              inputLabel="Project Description: "
+              inputLabel="Project Description"
               name="projectDescription"
               value={inputValues.projectDescription}
               onChange={handleGeneralInputChange}

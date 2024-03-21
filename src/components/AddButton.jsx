@@ -1,5 +1,7 @@
+import Icon from '@mui/material/Icon';
+
 export default function AddButton({ onClick }) {
     return (
-        <button className="addButton" onClick={onClick}>+</button>
+        <Icon className="addButton" color="primary" onClick={onClick}>add_circle</Icon>
     )
 }

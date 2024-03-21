@@ -1,5 +1,6 @@
 body {
   background-color: rgba(187, 250, 250, 0.823);
+  font-family: 'Roboto', sans-serif;
 }
 
 #root {
@@ -29,7 +30,7 @@ h2 {
 }
 
 .inputBox {
-  width: 180px;
+  width: 300px;
 }
 
 .inputSection {
@@ -108,16 +109,18 @@ h2 {
 } */
 
 .addButton {
-  background-color: rgb(191, 191, 191);
   font-weight: bold;
   margin-top: 1rem;
 }
 
-.deleteBtn {
-  color: rgb(250, 250, 250);
-  background-color: rgb(204, 97, 97);
-  font-weight: bold;
-  border: 1px solid black;
+.addButton:hover,
+.deleteBtn:hover {
+  cursor: pointer;
+}
+
+.deleteButton {
+  /* color: rgb(250, 250, 250);
+  background-color: rgb(204, 97, 97); */
   height: 30px;
   width: auto;
   text-align: center;

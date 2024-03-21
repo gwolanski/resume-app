@@ -1,10 +1,10 @@
+import TextField from '@mui/material/TextField';
+
 export default function InfoInput({ inputLabel, name, value, onChange }) {
     return (
         <div className="inputContainer">
-            <label className="inputLabel">
-                {inputLabel}
-            </label>
-            <input className="inputBox"
+            <TextField id="standard-basic" label={inputLabel} variant="outlined"
+                className="inputBox"
                 name={name}
                 value={value}
                 onChange={onChange}
