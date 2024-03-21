@@ -1,11 +1,11 @@
 body {
-  background-color: rgba(187, 250, 250, 0.823);
+  background-color: rgba(156, 194, 194, 0.823);
   font-family: 'Roboto', sans-serif;
+  max-width: 1280px;
 }
 
 #root {
   max-width: 1280px;
-  /* margin: 0 auto; */
   padding: 1rem;
   text-align: center;
 }
@@ -21,7 +21,7 @@ h2 {
 }
 
 .sectionHeading {
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .inputLabel {
@@ -34,14 +34,9 @@ h2 {
 }
 
 .inputSection {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 30px;
-  text-align: left;
+  border: 1px solid rgb(137, 137, 137);
   padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 7px 7px 10px rgb(137, 171, 182);
-  text-align: center;
+  box-shadow: 7px 7px 10px rgb(89, 112, 119);
 }
 
 .inputContainer {
@@ -52,16 +47,16 @@ h2 {
 
 }
 
-/* .container {
+.container {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: left
-} */
+  align-items: center;
+  gap: 5px;
+}
 
 .workEducationContainer {
   border-bottom: 1px solid rgb(186, 186, 186);
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .resultsContainer {
@@ -133,10 +128,12 @@ h2 {
   margin-top: 1rem;
 }
 
+
 .workExperienceContainer {
   display: flex;
   flex-direction: column;
-
+  gap: 2px;
+  margin-bottom: 10px;
 }
 
 .workExperienceHeading {
@@ -164,8 +161,15 @@ h2 {
 }
 
 .company,
-.school {
+.school,
+.workRight {
   color: rgb(98, 98, 98);
+}
+
+.responsibilities {
+  width: 90%;
+  text-align: left;
+  margin-left: 5%;
 }
 
 .educationContainer {

@@ -5,6 +5,10 @@ import InfoInput from './components/Info'
 import EducationWorkInfoInput from './components/EducationWorkInfo';
 import AddButton from './components/AddButton'
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './styles/App.css'
 
 function App() {
@@ -16,13 +20,6 @@ function App() {
     state: '',
     linkedInURL: '',
     gitHubURL: '',
-    company: '',
-    position: '',
-    startDate: '',
-    endDate: '',
-    projectName: '',
-    projectURL: '',
-    projectDescription: ''
   });
 
   const [educationInputValues, setEducationInputValues] = useState([{
@@ -183,84 +180,87 @@ function App() {
     <>
       <div className="pageLayout">
         <div className="input-container">
-          <div className="inputSection">
-            <h2 className="sectionHeading">General Info</h2>
-            <div className="container">
-              <InfoInput
-                inputLabel="Full Name "
-                name="fullName"
-                value={inputValues.fullName}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="Email "
-                name="email"
-                value={inputValues.email}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="Phone Number "
-                name="phoneNumber"
-                value={inputValues.phoneNumber}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="City "
-                name="city"
-                value={inputValues.city}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="State "
-                name="state"
-                value={inputValues.state}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="LinkedIn URL "
-                name="linkedInURL"
-                value={inputValues.linkedInURL}
-                onChange={handleGeneralInputChange}
-              />
-              <InfoInput
-                inputLabel="GitHub URL "
-                name="gitHubURL"
-                value={inputValues.gitHubURL}
-                onChange={handleGeneralInputChange}
-              />
-            </div>
-          </div>
-          <div className="inputSection">
-            <h2 className="sectionHeading">Work Experience</h2>
-            {listWorkInputs}
-            <AddButton onClick={handleAddWork} />
-          </div>
-          <div className="inputSection">
-            <h2 className="sectionHeading">Education</h2>
-            {listEducationInputs}
-            <AddButton onClick={handleAddEducation} />
-          </div>
-          <div className="inputSection">
-            <h2>Projects</h2>
-            <InfoInput
-              inputLabel="Project Name"
-              name="projectName"
-              value={inputValues.projectName}
-              onChange={handleGeneralInputChange}
-            />
-            <InfoInput
-              inputLabel="Project URL"
-              name="projectURL"
-              value={inputValues.projectURL}
-              onChange={handleGeneralInputChange}
-            />
-            <InfoInput
-              inputLabel="Project Description"
-              name="projectDescription"
-              value={inputValues.projectDescription}
-              onChange={handleGeneralInputChange}
-            />
-          </div>
+          <Accordion className="inputSection">
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <h2 className="sectionHeading">General Info</h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className="container">
+                <InfoInput
+                  inputLabel="Full Name "
+                  name="fullName"
+                  value={inputValues.fullName}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="Email "
+                  name="email"
+                  value={inputValues.email}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="Phone Number "
+                  name="phoneNumber"
+                  value={inputValues.phoneNumber}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="City "
+                  name="city"
+                  value={inputValues.city}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="State "
+                  name="state"
+                  value={inputValues.state}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="LinkedIn URL "
+                  name="linkedInURL"
+                  value={inputValues.linkedInURL}
+                  onChange={handleGeneralInputChange}
+                />
+                <InfoInput
+                  inputLabel="GitHub URL "
+                  name="gitHubURL"
+                  value={inputValues.gitHubURL}
+                  onChange={handleGeneralInputChange}
+                />
+              </div>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className="inputSection">
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <h2 className="sectionHeading">Work Experience</h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              {listWorkInputs}
+              <AddButton onClick={handleAddWork} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className="inputSection">
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <h2 className="sectionHeading">Education</h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              {listEducationInputs}
+              <AddButton onClick={handleAddEducation} />
+            </AccordionDetails>
+          </Accordion>
         </div>
         <div className="resultsContainer">
           <div className="resumeName">{inputValues.fullName}</div>
@@ -291,7 +291,7 @@ function App() {
                     <div key={item.id} > {item.endDate}</div>
                   </div>
                 </div>
-                <div key={item.id} > {item.responsibilities}</div>
+                <div key={item.id} className="responsibilities"> {item.responsibilities}</div>
               </div>
             ))}
           </div>
