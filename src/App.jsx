@@ -25,7 +25,7 @@ function App() {
   const [educationInputValues, setEducationInputValues] = useState([{
     identifier: uuidv4(),
     school: '',
-    major: '',
+    degree: '',
     graduationYear: ''
   }
   ]);
@@ -42,7 +42,7 @@ function App() {
     setEducationInputValues([...educationInputValues, {
       identifier: uuidv4(),
       school: '',
-      major: '',
+      degree: '',
       graduationYear: ''
     }])
   }
@@ -110,10 +110,10 @@ function App() {
       />
       <EducationWorkInfoInput
         id={item.id}
-        inputLabel="Major"
+        inputLabel="Degree"
         identifier={item.identifier}
-        name="major"
-        value={item.major}
+        name="degree"
+        value={item.degree}
         onChange={event => handleEducationInputChange(item.identifier, event)}
       />
       <EducationWorkInfoInput
@@ -302,9 +302,11 @@ function App() {
             <h2 className="sectionHeading">Education</h2>
             {educationInputValues.map(item => (
               <div className="educationContainer resumeText">
-                <div key={item.id} className="major">{item.major}</div>
-                <div className="symbol">|</div>
-                <div key={item.id} className="school">{item.school}</div>
+                <div className="educationLeft">
+                  <div key={item.id} className="degree">{item.degree}</div>
+                  <div className="symbol">|</div>
+                  <div key={item.id} className="school">{item.school}</div>
+                </div>
                 <div key={item.id}>{item.graduationYear}</div>
               </div>
 
