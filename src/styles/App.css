@@ -148,7 +148,7 @@ h2 {
 
 .position,
 .company,
-.major,
+.degree,
 .school {
   font-weight: bold;
 }
@@ -166,6 +166,12 @@ h2 {
 }
 
 .educationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.educationLeft {
   display: flex;
   flex-direction: row;
 }
