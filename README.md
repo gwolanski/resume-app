@@ -1,8 +1,4 @@
-# React + Vite
+Welcome to my first React project! The goal of this project was to create a simple CV Application where a user's inputs are transformed into a visual display of a resume. The project instructions can be found here: https://www.theodinproject.com/lessons/node-path-react-new-cv-application#project-solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It was nice to put some of the concepts from my recent learning to use, such as jsx, components, keys, props, and use state. As can be expected, the transition from reading about concepts to implementing them in a project has its challenges. However, as I've learned throughout my coding journey, the real learning happens when I'm working on my projects. Not only did I enhance my knowledge on some of the React basics I've learned, but during my research I also came across the Material-UI framework. I implemented Material-UI features into my input section and it made a huge difference in cleaning up this section's appearance, giving it more of a modern feel. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

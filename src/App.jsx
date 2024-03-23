@@ -185,6 +185,7 @@ function App() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{ maxHeight: "30px" }}
             >
               <h2 className="sectionHeading">General Info</h2>
             </AccordionSummary>
@@ -235,11 +236,12 @@ function App() {
               </div>
             </AccordionDetails>
           </Accordion>
-          <Accordion className="inputSection">
+          <Accordion className="inputSection" sx={{ margin: "10px 0" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{ maxHeight: "30px" }}
             >
               <h2 className="sectionHeading">Work Experience</h2>
             </AccordionSummary>
@@ -248,11 +250,12 @@ function App() {
               <AddButton onClick={handleAddWork} />
             </AccordionDetails>
           </Accordion>
-          <Accordion className="inputSection">
+          <Accordion className="inputSection" sx={{ margin: "10px 0" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{ maxHeight: "30px" }}
             >
               <h2 className="sectionHeading">Education</h2>
             </AccordionSummary>
@@ -264,13 +267,13 @@ function App() {
         </div>
         <div className="resultsContainer">
           <div className="resumeName">{inputValues.fullName}</div>
-          <div className="resumeLocation">{inputValues.city}, {inputValues.state}</div>
-          <div className="resumeContactInfo">
-            <div className="links">
+          <div className="resumeLocation resumeText">{inputValues.city}, {inputValues.state}</div>
+          <div className="resumeContactInfo resumeText">
+            <div className="links resumeText">
               <div>{inputValues.linkedInURL}</div>
               <div>{inputValues.gitHubURL}</div>
             </div>
-            <div className="contactInfo">
+            <div className="contactInfo resumeText">
               <div>{inputValues.email}</div>
               <div>{inputValues.phoneNumber}</div>
             </div>
@@ -278,7 +281,7 @@ function App() {
           <div className="resumeWork">
             <h2 className="sectionHeading">Work Experience</h2>
             {workInputValues.map(item => (
-              <div className="workExperienceContainer">
+              <div className="workExperienceContainer resumeText">
                 <div className="workExperienceHeading">
                   <div className="workLeft">
                     <div key={item.id} className="position"> {item.position}</div>
@@ -298,7 +301,7 @@ function App() {
           <div className="resumeEducation">
             <h2 className="sectionHeading">Education</h2>
             {educationInputValues.map(item => (
-              <div className="educationContainer">
+              <div className="educationContainer resumeText">
                 <div key={item.id} className="major">{item.major}</div>
                 <div className="symbol">|</div>
                 <div key={item.id} className="school">{item.school}</div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Icon from '@mui/material/Icon';
 
 export default function AddButton({ onClick }) {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import TextField from '@mui/material/TextField';
 
 export default function EducationWorkInfoInput({ inputLabel, id, name, value, onChange }) {
@@ -39,8 +40,6 @@ export default function EducationWorkInfoInput({ inputLabel, id, name, value, on
             return standardTextField();
         }
     }
-
-
 
     return (
         <div className="inputContainer">
